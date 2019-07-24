@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
         width: '100%',
         backgroundColor: 'white',
         alignItems: 'center',
-        borderBottomColor: 'gray',
+        borderBottomColor: 'white',
         borderBottomWidth: 1,
     },
     leftImgStyle: {
