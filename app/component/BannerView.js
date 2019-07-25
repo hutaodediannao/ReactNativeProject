@@ -49,8 +49,6 @@ class BannerLayout extends React.Component {
                     style={styles.container}
                     onMomentumScrollEnd={() => {
 
-                        ToastAndroid.show('ok', ToastAndroid.SHORT);
-
                     }}
                 >
                     <Image style={styles.pageStyle}
