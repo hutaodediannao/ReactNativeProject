@@ -14,18 +14,48 @@ import BaseDialog from './component/BaseDialog';
 const data = ['我的最爱', '热门内容', '优美话题'];
 
 class MainPage extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            isShowDialog: false,
+        };
+    }
+
     render() {
         return (
             <View>
-                <HeaderView leftClick={this.left} centerTitle="这是主页" mode={2} clickRight={this.clickRight}/>
+                <HeaderView leftClick={this.left}
+                            centerTitle="这是主页"
+                            mode={2}
+                            clickRight={this.clickRight}/>
                 <BannerLayout/>
                 <TabLayout datas={data}/>
                 <View style={styles.bodyContainerStyle}
-                      _dialogLeftBtnAction={()=>{}}
-                      _dialogRightBtnAction={()=>{}}>
+                      _dialogLeftBtnAction={() => {
+                      }}
+                      _dialogRightBtnAction={() => {
+                      }}>
                     {/*<CardView/>*/}
                 </View>
-                <BaseDialog/>
+                <BaseDialog
+                    _dialogTitle={'温馨提示'}
+                    _dialogContent={'是否退出'}
+                    _dialogLeftBtnTitle={'取消'}
+                    _dialogRightBtnTitle={'确定'}
+                    _dialogVisible={this.state.isShowDialog}
+                    _dialogLeftBtnAction={() => {
+                        this.setState({
+                            isShowDialog: !this.state.isShowDialog,
+                        });
+                    }}
+                    _dialogRightBtnAction={() => {
+                        this.setState({
+                            isShowDialog: !this.state.isShowDialog,
+                        });
+                    }}
+                />
+                <CardView/>
             </View>
         );
     }
@@ -35,7 +65,9 @@ class MainPage extends React.Component {
     };
 
     clickRight = () => {
-        ToastAndroid.show('right', ToastAndroid.SHORT);
+        this.setState({
+            isShowDialog: true,
+        });
     };
 }
 

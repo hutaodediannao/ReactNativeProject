@@ -9,11 +9,6 @@ class BaseDialog extends React.Component {
         super(props);
         this.state = {
             modalVisible: true,
-            _dialogTitle: '温馨提示',
-            _dialogContent: '是否退出',
-            _dialogLeftBtnTitle: '取消',
-            _dialogRightBtnTitle: '确定',
-            _dialogVisible: false,
         };
     }
 
@@ -49,6 +44,7 @@ class BaseDialog extends React.Component {
                                     {this.props._dialogLeftBtnTitle}
                                 </Text>
                             </TouchableHighlight>
+                            <View style={styles.line}/>
                             <TouchableHighlight style={styles.dialogBtnViewItem}
                                                 onPress={this.props._dialogRightBtnAction}>
                                 <Text style={styles.rightButton}>
@@ -92,7 +88,7 @@ const styles = StyleSheet.create({
     dialogTitle: {
         textAlign: 'center',
         fontSize: 18,
-        color: '#000000',
+        color: 'red',
     },
     dialogContentView: {
         width: SCREEN_WIDTH * 0.8,
@@ -109,6 +105,13 @@ const styles = StyleSheet.create({
         width: SCREEN_WIDTH * 0.8,
         height: SCREEN_HEIGHT * 0.08,
         flexDirection: 'row',
+    },
+    line: {
+        width: 1,
+        height: SCREEN_HEIGHT * 0.06,
+        backgroundColor: 'white',
+        marginTop: 5,
+        marginBottom: 5,
     },
     dialogBtnViewItem: {
         flex: 1,
