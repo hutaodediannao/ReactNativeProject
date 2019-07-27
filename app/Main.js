@@ -10,6 +10,7 @@ import TabLayout from './component/TabLayout';
 import BannerLayout from './component/BannerView.js';
 import CardView from './component/CardView';
 import BaseDialog from './component/BaseDialog';
+import StepView from './component/StepView';
 
 const data = ['我的最爱', '热门内容', '优美话题'];
 
@@ -56,6 +57,7 @@ class MainPage extends React.Component {
                     }}
                 />
                 <CardView/>
+                <StepView/>
             </View>
         );
     }
