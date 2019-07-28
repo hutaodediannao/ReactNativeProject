@@ -7,9 +7,10 @@
  */
 
 import React from "react";
-import MainPage from "./app/Main.js";
+import MainPage from "./app/page/Main.js";
+import StartPage from './app/page/StartPage';
 
 const App = () => {
-  return <MainPage />;
+  return <StartPage />;
 };
 export default App;
