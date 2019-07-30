@@ -10,8 +10,8 @@ class MyButton extends React.Component {
         return (
             <View style={styles.buttonStyle}>
                 <Button
-                    title={'图片浏览'}
-                    color={'red'}
+                    title={this.props.name}
+                    color={this.props.color}
                     onPress={this.props.click}
                 />
             </View>

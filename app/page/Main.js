@@ -13,6 +13,7 @@ import StepView from '../component/StepView';
 import MyButton from '../component/Button';
 import {createStackNavigator, createAppContainer} from 'react-navigation';
 import DetailPage from './DetailPage';
+import ListPage from './ListPage';
 
 const data = ['我的最爱', '热门内容', '优美话题'];
 class MainPage extends React.Component {
@@ -53,9 +54,19 @@ class MainPage extends React.Component {
                     />
                     <CardView/>
                     <StepView/>
-                    <MyButton click={()=>{
-                        this.props.navigation.navigate('Detail');
-                    }}/>
+                    <MyButton
+                        name={'图片浏览'}
+                        color={'blue'}
+                        click={() => {
+                            this.props.navigation.navigate('Detail');
+                        }}/>
+                    <MyButton
+                        name={'请求网络'}
+                        color={'red'}
+                        click={()=>{
+                            this.props.navigation.navigate('FetchList');
+                        }}
+                    />
                 </ScrollView>
             </View>
         );
@@ -79,6 +90,9 @@ const AppNavigator = createStackNavigator(
         },
         Detail:{
             screen: DetailPage,
+        },
+        FetchList:{
+            screen:ListPage,
         }
     },
     {
