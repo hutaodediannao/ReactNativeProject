@@ -14,8 +14,10 @@ import MyButton from '../component/Button';
 import {createStackNavigator, createAppContainer} from 'react-navigation';
 import DetailPage from './DetailPage';
 import ListPage from './ListPage';
+import DesignListPage from './DesignListPage';
 
 const data = ['我的最爱', '热门内容', '优美话题'];
+
 class MainPage extends React.Component {
 
     constructor(props) {
@@ -63,8 +65,15 @@ class MainPage extends React.Component {
                     <MyButton
                         name={'请求网络'}
                         color={'red'}
-                        click={()=>{
+                        click={() => {
                             this.props.navigation.navigate('FetchList');
+                        }}
+                    />
+                    <MyButton
+                        name={'自定义网络数据列表'}
+                        color={'red'}
+                        click={() => {
+                            this.props.navigation.navigate('DesignPage');
                         }}
                     />
                 </ScrollView>
@@ -73,7 +82,7 @@ class MainPage extends React.Component {
     }
 
     left = () => {
-        this.props.navigation.goBack()
+        this.props.navigation.goBack();
     };
 
     clickRight = () => {
@@ -88,12 +97,15 @@ const AppNavigator = createStackNavigator(
         Main: {
             screen: MainPage,
         },
-        Detail:{
+        Detail: {
             screen: DetailPage,
         },
-        FetchList:{
-            screen:ListPage,
-        }
+        FetchList: {
+            screen: ListPage,
+        },
+        DesignPage: {
+            screen: DesignListPage,
+        },
     },
     {
         initialRouteName: 'Main',
